@@ -9,7 +9,7 @@ Highlights:
 - estimated remaining laps based on last 3 laps as average (if race is based on time)
 - tire compound and stint length of drivers on relative board.
 - experimental: Push to pass info. (still buggy)
-- Lovely Track Data implementation. Many thanks to Constantinos for this brilliant ideas! --> https://lsr.gg
+- Lovely Track Data implementation. Many thanks to Constantinos for these brilliant ideas! --> https://lsr.gg
 
 <br>Buy me a coffee if you want at https://www.buymeacoffee.com/donutz
 
