@@ -1,0 +1,22 @@
+{
+  "SimHubVersion": "9.3.9",
+  "Category": null,
+  "Title": "Donutz iRacing Dashboard",
+  "Description": null,
+  "Author": "Oliver \"Don\" Utz",
+  "ScreenCount": 1.0,
+  "InGameScreensIndexs": [
+    0
+  ],
+  "IdleScreensIndexs": [
+    0
+  ],
+  "MainPreviewIndex": 0,
+  "IsOverlay": false,
+  "Width": 1280.0,
+  "Height": 800.0,
+  "OverlaySizeWarning": true,
+  "MetadataVersion": 2.0,
+  "EnableOnDashboardMessaging": true,
+  "PitScreensIndexs": []
+}
