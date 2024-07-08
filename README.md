@@ -16,3 +16,5 @@ Highlights:
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eeb0d0b9-7764-4193-a007-1b9b8a8460fb)
 
 [![https://www.youtube.com/watch?v=QI3ehugcwWY](https://www.youtube.com/watch?v=QI3ehugcwWY)]
+
+[![Youtube](https://img.youtube.com/vi/QI3ehugcwWY/0.jpg)](https://www.youtube.com/watch?v=QI3ehugcwWY)
