@@ -7,6 +7,7 @@ Highlights:
 - iRating with different color code than usual. iRating which is 500+ higher than yours will be marked with red color
 - temporary indicators when changing ABS, TC or BB
 - estimated remaining laps based on last 3 laps as average (if race is based on time)
+- tire compound and stint length of drivers on relative board.
 
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eeb0d0b9-7764-4193-a007-1b9b8a8460fb)
 
