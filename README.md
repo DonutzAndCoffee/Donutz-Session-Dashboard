@@ -1,6 +1,6 @@
 # Donutz Session Dashboard
 <br>This is my current main dashboard which I use for daily races. Currently all features are only tested with iRacing.
-
+<br>Please note that this is still work in progress. Let me know if you find any bugs.
 Highlights:
 - rejoin indicator for pit stops and spin situations
 - tiny track map which shows position of all drivers (on track and on pit road)
