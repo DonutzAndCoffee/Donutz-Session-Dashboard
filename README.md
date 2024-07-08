@@ -9,5 +9,7 @@ Highlights:
 - estimated remaining laps based on last 3 laps as average (if race is based on time)
 - tire compound and stint length of drivers on relative board.
 
+<br>Buy me a coffee if you want at https://www.buymeacoffee.com/donutz
+
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eeb0d0b9-7764-4193-a007-1b9b8a8460fb)
 
