@@ -3,7 +3,7 @@
 <br>Please note that this is still work in progress. Let me know if you find any bugs.
 Highlights:
 - rejoin indicator for pit stops and spin situations
-- tiny track map which shows position of all drivers (on track and on pit road)
+- tiny "horizontal" track map which shows position of all drivers (on track and on pit road)
 - iRating with different color code than usual. iRating which is 500+ higher than yours will be marked with red color
 - temporary indicators when changing ABS, TC or BB
 - estimated remaining laps based on last 3 laps as average (if race is based on time)
