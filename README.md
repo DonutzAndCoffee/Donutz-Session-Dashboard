@@ -16,13 +16,16 @@ Highlights:
 
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eeb0d0b9-7764-4193-a007-1b9b8a8460fb)
 
-[![https://www.youtube.com/watch?v=QI3ehugcwWY](https://www.youtube.com/watch?v=QI3ehugcwWY)]
 
+Adjustable lap time column by pressing button. You need to create a role called "DSD-LAPTIME-MODE" and assign a button to it.
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/f2ee752c-d154-4a22-a9b5-cb985624f587)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/79d91317-d17b-4ebe-9398-9bb60b75acba)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/d7ab2f64-31c9-4ccd-b58b-9ba71de7152b)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/32fdadfd-8ace-4158-9e1c-166812a2c9fe)
+![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eff6372d-5072-4e0a-b1b9-7550cd14de8f)
+![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/5659dfbe-fcef-40b1-8d41-89e3fa092a60)
 
 
 
+[![https://www.youtube.com/watch?v=QI3ehugcwWY](https://www.youtube.com/watch?v=QI3ehugcwWY)]
 [![Youtube](https://img.youtube.com/vi/QI3ehugcwWY/0.jpg)](https://www.youtube.com/watch?v=QI3ehugcwWY)
