@@ -1,0 +1,35 @@
+{
+	"_comment": "Enjoy! :)",
+	"IRacing": {
+		"Profiles": [
+			{
+				"ProfileName": "Race1",
+				"SessionTypes": ["Race"],
+				"iRatingTF": false,
+				"DriverOnRadioTF": true,
+				"lapTimeMode": "lastGap"
+			},
+			{
+				"ProfileName": "Race2",
+				"SessionTypes": ["Race"],
+				"iRatingTF": true,
+				"DriverOnRadioTF": true,
+				"lapTimeMode": "lastGap"
+			},
+			{
+				"ProfileName": "Practice/Qualify",
+				"SessionTypes": ["Qualify", "Practice"],
+				"iRatingTF": true,
+				"DriverOnRadioTF": false,
+				"lapTimeMode": "bestGap"
+			},
+			{
+				"ProfileName": "Practice",
+				"SessionTypes": ["PRACTICE"],
+				"iRatingTF": false,
+				"DriverOnRadioTF": true,
+				"lapTimeMode": "bestGap"
+			}
+		]
+	}
+}
