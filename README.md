@@ -2,6 +2,7 @@
 <br>This is my current main dashboard which I use for daily races. Currently all features are only tested with iRacing.
 <br>Please note that this is still work in progress. Let me know if you find any bugs.
 Highlights:
+- Config profiles filtered by Race, Qualify and Practive/Test sessions
 - rejoin indicator for pit stops and spin situations
 - tiny "horizontal" track map which shows position of all drivers (on track and on pit road)
 - iRating with different color code than usual. iRating which is 500+ higher than yours will be marked with red color
@@ -11,6 +12,7 @@ Highlights:
 - tire compound and stint length of drivers on relative board.
 - experimental: Push to pass info. (still buggy)
 - Lovely Track Data implementation. Many thanks to Constantinos for these brilliant ideas! --> https://lsr.gg
+- Plugin to configure profiles
 
 <br>Buy me a coffee if you want at https://www.buymeacoffee.com/donutz
 
@@ -18,13 +20,14 @@ Highlights:
 
 
 ## Adjustable lap time column by pressing button. 
-You need to create a role called "DSD-LAPTIME-MODE" and assign a button to it.
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/f2ee752c-d154-4a22-a9b5-cb985624f587)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/79d91317-d17b-4ebe-9398-9bb60b75acba)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/d7ab2f64-31c9-4ccd-b58b-9ba71de7152b)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/32fdadfd-8ace-4158-9e1c-166812a2c9fe)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eff6372d-5072-4e0a-b1b9-7550cd14de8f)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/5659dfbe-fcef-40b1-8d41-89e3fa092a60)
+![grafik](https://github.com/user-attachments/assets/d7cce2bf-5b1c-4908-bad5-876a08293c40)
+
 
 
 ## Short Youtube demo
