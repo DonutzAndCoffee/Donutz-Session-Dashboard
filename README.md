@@ -24,8 +24,6 @@ Highlights:
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/79d91317-d17b-4ebe-9398-9bb60b75acba)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/d7ab2f64-31c9-4ccd-b58b-9ba71de7152b)
 ![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/32fdadfd-8ace-4158-9e1c-166812a2c9fe)
-![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/eff6372d-5072-4e0a-b1b9-7550cd14de8f)
-![grafik](https://github.com/DonutzAndCoffee/Donutz-Session-Dashboard/assets/62204936/5659dfbe-fcef-40b1-8d41-89e3fa092a60)
 ![grafik](https://github.com/user-attachments/assets/d7cce2bf-5b1c-4908-bad5-876a08293c40)
 
 
