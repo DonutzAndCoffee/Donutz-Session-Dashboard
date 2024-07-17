@@ -3612,7 +3612,7 @@
           "Bindings": {
             "Visible": {
               "Formula": {
-                "Expression": "if ([EngineStarted]\r\n\tAND \r\n\t[DataCorePlugin.GameRunning]\r\n\tAND ((\r\n\t ![GameRawData.Telemetry.SessionFlagsDetails.IsoneLapToGreen]\r\n\t AND ![GameRawData.Telemetry.OnPitRoad]\r\n\t AND [SpeedKmh]<30\r\n\t )\r\n\tOR\r\n\t [GameRawData.Telemetry.OnPitRoad]\r\n\tOR\r\n\t changed(10000,[GameRawData.Telemetry.OnPitRoad]))\r\n\tOR \r\n\t ([GameRawData.Telemetry.PlayerTrackSurface]==0 \r\n\t AND [SpeedKmh]<100)\r\n,true\r\n,false)"
+                "Expression": "if ([DataCorePlugin.GameRunning] AND [EngineStarted] \r\n\tAND (((\r\n\t ![GameRawData.Telemetry.SessionFlagsDetails.IsoneLapToGreen]\r\n\t AND ![GameRawData.Telemetry.OnPitRoad]\r\n\t AND [SpeedKmh]<30\r\n\t )\r\n\tOR\r\n\t [GameRawData.Telemetry.OnPitRoad]\r\n\tOR\r\n\t changed(10000,[GameRawData.Telemetry.OnPitRoad]))\r\n\tOR \r\n\t ([GameRawData.Telemetry.PlayerTrackSurface]==0 \r\n\t AND [SpeedKmh]<100))\r\n,true\r\n,false)"
               },
               "Mode": 2
             }
@@ -4168,6 +4168,15 @@
               "Mode": 2
             }
           }
+        },
+        {
+          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.Layer, SimHub.Plugins",
+          "Group": false,
+          "Repetitions": 0,
+          "Visible": true,
+          "Name": "Messages",
+          "RenderingSkip": 0,
+          "MinimumRefreshIntervalMS": 0.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0

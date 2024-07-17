@@ -4185,8 +4185,8 @@
           ],
           "Visible": true,
           "Name": "Messages",
-          "RenderingSkip": 5,
-          "MinimumRefreshIntervalMS": 50.0
+          "RenderingSkip": 0,
+          "MinimumRefreshIntervalMS": 0.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0

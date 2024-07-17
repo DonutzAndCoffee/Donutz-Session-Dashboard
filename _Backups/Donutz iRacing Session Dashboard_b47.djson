@@ -3826,7 +3826,7 @@
                       "Formula": {
                         "JSExt": 0,
                         "Interpreter": 1,
-                        "Expression": "return $prop(\"DonutzSimhubPlugin.DSD.TrackToolCarPosX\")[$prop(\"PlayerLeaderboardPosition\")]\r\n/*if(drivertrackpositionpercent([PlayerLeaderboardPosition])>0.5,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])-0.5)*1280,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])+0.5)*1280\r\n\t)\r\n\t\r\n\t*/"
+                        "Expression": "return $prop(\"DonutzSimhubPlugin.DSD.TrackToolCarPosX\")[$prop(\"PlayerLeaderboardPosition\")-1]\r\n/*if(drivertrackpositionpercent([PlayerLeaderboardPosition])>0.5,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])-0.5)*1280,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])+0.5)*1280\r\n\t)\r\n\t\r\n\t*/"
                       },
                       "Mode": 2
                     },

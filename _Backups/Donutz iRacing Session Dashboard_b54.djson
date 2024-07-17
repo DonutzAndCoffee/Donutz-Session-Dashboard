@@ -106,7 +106,7 @@
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "d67cdfc1-7fa0-49aa-aaf4-e0ac81227336",
+  "Id": "96c2bac2-6911-43e9-81bf-b674aea87510",
   "BaseHeight": 800,
   "BaseWidth": 1280,
   "BackgroundColor": "#FF000000",
@@ -4059,7 +4059,9 @@
               "Bindings": {
                 "Text": {
                   "Formula": {
-                    "Expression": "'Radio: ' + [DonutzSimhubPlugin.Race1RadioEnabled]"
+                    "JSExt": 0,
+                    "Interpreter": 1,
+                    "Expression": "return 'Radio: ' + $prop(\"DonutzSimhubPlugin.DSD.RadioEnabled\")[1]"
                   },
                   "Mode": 2
                 }
