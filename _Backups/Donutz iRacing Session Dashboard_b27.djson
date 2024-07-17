@@ -106,7 +106,7 @@
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "0e4d69e7-b13f-48c1-9988-6cdcbbd65c08",
+  "Id": "f90df98a-71d0-4c45-87c0-3e075d4159c7",
   "BaseHeight": 800,
   "BaseWidth": 1280,
   "BackgroundColor": "#FF000000",
@@ -245,13 +245,13 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(repeatindex(0));\r\n\r\nswitch ($prop('variable.laptimeMode')) {\r\n\tcase 'lastGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n\tcase 'bestGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n}"
+                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(repeatindex(0));\r\n\r\nswitch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'LGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n\tcase 'BGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n}"
                   },
                   "Mode": 2
                 },
                 "Visible": {
                   "Formula": {
-                    "Expression": "if(([variable.laptimeMode]=='bestGap' OR [variable.laptimeMode]=='lastGap') AND getopponentleaderboardposition_aheadbehind(repeatindex(0))>0,true,false)"
+                    "Expression": "if(([DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='BGap' OR [DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='LGap') AND getopponentleaderboardposition_aheadbehind(repeatindex(0))>0,true,false)"
                   },
                   "Mode": 2
                 },
@@ -259,7 +259,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(repeatindex(0));\r\nlet timeOpponent;\r\nlet timeOwn;\r\n\r\nswitch ($prop('variable.laptimeMode')) {\r\n\tcase 'lastGap':\r\n\t\ttimeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n\tcase 'bestGap':\r\n\t\ttimeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n}\r\n\r\nlet val =  timeOpponent - timeOwn;\r\n\r\nif ((val < 0) && (timeOpponent!=0) && (timeOwn!=0)) {\r\n\treturn 'Red';\r\n} else if ((val > 0) && (timeOpponent!=0) && (timeOwn!=0))  {\r\n\treturn 'Green';\r\n} else {\r\n\treturn 'Gray'\r\n}"
+                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(repeatindex(0));\r\nlet timeOpponent;\r\nlet timeOwn;\r\n\r\nswitch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'LGap':\r\n\t\ttimeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n\tcase 'BGap':\r\n\t\ttimeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n}\r\n\r\nlet val =  timeOpponent - timeOwn;\r\n\r\nif ((val < 0) && (timeOpponent!=0) && (timeOwn!=0)) {\r\n\treturn 'Red';\r\n} else if ((val > 0) && (timeOpponent!=0) && (timeOwn!=0))  {\r\n\treturn 'Green';\r\n} else {\r\n\treturn 'Gray'\r\n}"
                   },
                   "Mode": 2
                 }
@@ -289,13 +289,13 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "switch ($prop('variable.laptimeMode')) {\r\n\tcase 'last':\r\n\t\treturn driverlastlap(getopponentleaderboardposition_aheadbehind(repeatindex(0)));\r\n\t\tbreak;\r\n\tcase 'best':\r\n\t\treturn driverbestlap(getopponentleaderboardposition_aheadbehind(repeatindex(0)));\r\n\t\tbreak;\r\n}"
+                    "Expression": "switch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'Last':\r\n\t\treturn driverlastlap(getopponentleaderboardposition_aheadbehind(repeatindex(0)));\r\n\t\tbreak;\r\n\tcase 'Best':\r\n\t\treturn driverbestlap(getopponentleaderboardposition_aheadbehind(repeatindex(0)));\r\n\t\tbreak;\r\n}"
                   },
                   "Mode": 2
                 },
                 "Visible": {
                   "Formula": {
-                    "Expression": "if([variable.laptimeMode]=='best' OR [variable.laptimeMode]=='last' OR getopponentleaderboardposition_aheadbehind(repeatindex(0))>0,true,false)"
+                    "Expression": "if([DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='Best' OR [DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='Last' OR getopponentleaderboardposition_aheadbehind(repeatindex(0))>0,true,false)"
                   },
                   "Mode": 2
                 }
@@ -567,7 +567,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");"
                   },
                   "Mode": 2
                 },
@@ -604,7 +604,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\n\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");"
                   },
                   "Mode": 2
                 },
@@ -778,7 +778,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "switch ($prop('variable.laptimeMode')) {\r\n\tcase 'last':\r\n\tcase 'lastGap':\r\n\t\treturn driverlastlap($prop(\"PlayerLeaderboardPosition\"));\r\n\t\tbreak;\r\n\tcase 'best':\r\n\tcase 'bestGap':\r\n\t\treturn driverbestlap($prop(\"PlayerLeaderboardPosition\"));\r\n\t\tbreak;\r\n}"
+                    "Expression": "switch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'Last':\r\n\tcase 'LGap':\r\n\t\treturn driverlastlap($prop(\"PlayerLeaderboardPosition\"));\r\n\t\tbreak;\r\n\tcase 'Best':\r\n\tcase 'BGap':\r\n\t\treturn driverbestlap($prop(\"PlayerLeaderboardPosition\"));\r\n\t\tbreak;\r\n}"
                   },
                   "Mode": 2
                 }
@@ -979,7 +979,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true)"
+                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\"),true)"
                   },
                   "Mode": 2
                 }
@@ -1016,7 +1016,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true)"
+                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\"),true)"
                   },
                   "Mode": 2
                 }
@@ -1178,13 +1178,13 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(-1*repeatindex(0));\r\n\r\nswitch ($prop('variable.laptimeMode')) {\r\n\tcase 'lastGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n\tcase 'bestGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n}"
+                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(-1*repeatindex(0));\r\n\r\nswitch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'LGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n\tcase 'BGap':\r\n\t\tconst timeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\tconst timeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tif ((timeOwn!=0) && (timeOpponent!=0)) {\r\n\t\t\treturn timeOpponent - timeOwn;\r\n\t\t} else {\r\n\t\t\treturn \"-\";\r\n\t\t}\r\n\t\tbreak;\r\n}"
                   },
                   "Mode": 2
                 },
                 "Visible": {
                   "Formula": {
-                    "Expression": "if(([variable.laptimeMode]=='bestGap' OR [variable.laptimeMode]=='lastGap') AND getopponentleaderboardposition_aheadbehind(-1*repeatindex(0))>0,true,false)"
+                    "Expression": "if(([DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='BGap' OR [DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='LGap') AND getopponentleaderboardposition_aheadbehind(-1*repeatindex(0))>0,true,false)"
                   },
                   "Mode": 2
                 },
@@ -1192,7 +1192,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(-1*repeatindex(0));\r\nlet timeOpponent;\r\nlet timeOwn;\r\n\r\nswitch ($prop('variable.laptimeMode')) {\r\n\tcase 'lastGap':\r\n\t\ttimeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n\tcase 'bestGap':\r\n\t\ttimeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n}\r\n\r\nlet val =  timeOpponent - timeOwn;\r\n\r\nif ((val < 0) && (timeOpponent!=0) && (timeOwn!=0)) {\r\n\treturn 'Red';\r\n} else if ((val > 0) && (timeOpponent!=0) && (timeOwn!=0))  {\r\n\treturn 'Green';\r\n} else {\r\n\treturn 'Gray'\r\n}"
+                    "Expression": "const posOpponent = getopponentleaderboardposition_aheadbehind(-1*repeatindex(0));\r\nlet timeOpponent;\r\nlet timeOwn;\r\n\r\nswitch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'LGap':\r\n\t\ttimeOpponent = timespantoseconds(driverlastlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverlastlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n\tcase 'BGap':\r\n\t\ttimeOpponent = timespantoseconds(driverbestlap(posOpponent));\r\n\t\ttimeOwn = timespantoseconds(driverbestlap($prop(\"PlayerLeaderboardPosition\")));\r\n\t\tbreak;\r\n}\r\n\r\nlet val =  timeOpponent - timeOwn;\r\n\r\nif ((val < 0) && (timeOpponent!=0) && (timeOwn!=0)) {\r\n\treturn 'Red';\r\n} else if ((val > 0) && (timeOpponent!=0) && (timeOwn!=0))  {\r\n\treturn 'Green';\r\n} else {\r\n\treturn 'Gray'\r\n}"
                   },
                   "Mode": 2
                 }
@@ -1222,13 +1222,13 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "switch ($prop('variable.laptimeMode')) {\r\n\tcase 'last':\r\n\t\treturn driverlastlap(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)));\r\n\t\tbreak;\r\n\tcase 'best':\r\n\t\treturn driverbestlap(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)));\r\n\t\tbreak;\r\n}"
+                    "Expression": "switch ($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode\")) {\r\n\tcase 'Last':\r\n\t\treturn driverlastlap(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)));\r\n\t\tbreak;\r\n\tcase 'Best':\r\n\t\treturn driverbestlap(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)));\r\n\t\tbreak;\r\n}"
                   },
                   "Mode": 2
                 },
                 "Visible": {
                   "Formula": {
-                    "Expression": "if([variable.laptimeMode]=='best' OR [variable.laptimeMode]=='last' OR getopponentleaderboardposition_aheadbehind(-1*repeatindex(0))>0,true,false)"
+                    "Expression": "if([DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='Best' OR [DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]=='Last' OR getopponentleaderboardposition_aheadbehind(-1*repeatindex(0))>0,true,false)"
                   },
                   "Mode": 2
                 }
@@ -1385,7 +1385,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");;"
                   },
                   "Mode": 2
                 },
@@ -1422,7 +1422,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");"
                   },
                   "Mode": 2
                 },
@@ -1683,9 +1683,7 @@
               "Bindings": {
                 "Text": {
                   "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "switch ($prop(\"variable.laptimeMode\")) {\r\n\r\n\tcase \"last\": \r\n\t\treturn 'Last';\r\n\t\tbreak;\r\n\tcase \"best\": \r\n\t\treturn 'Best';\r\n\t\tbreak;\r\n\tcase \"lastGap\": \r\n\t\treturn 'LGap';\r\n\t\tbreak;\r\n\tcase \"bestGap\": \r\n\t\treturn 'BGap';\r\n\t\tbreak;\r\n}"
+                    "Expression": "[DonutzSimhubPlugin.DSD.CurrentProfileLapTimeMode]"
                   },
                   "Mode": 2
                 }
@@ -3614,7 +3612,7 @@
           "Bindings": {
             "Visible": {
               "Formula": {
-                "Expression": "if ([EngineStarted]\r\n\tAND \r\n\t[DataCorePlugin.GameRunning]\r\n\tAND ((\r\n\t ![GameRawData.Telemetry.SessionFlagsDetails.IsoneLapToGreen]\r\n\t AND ![GameRawData.Telemetry.OnPitRoad]\r\n\t AND [SpeedKmh]<30\r\n\t )\r\n\tOR\r\n\t [GameRawData.Telemetry.OnPitRoad]\r\n\tOR\r\n\t changed(10000,[GameRawData.Telemetry.OnPitRoad]))\r\n\tOR \r\n\t ([GameRawData.Telemetry.PlayerTrackSurface]==0 \r\n\t AND [SpeedKmh]<100)\r\n,true\r\n,false)"
+                "Expression": "if ([DataCorePlugin.GameRunning] AND [EngineStarted] \r\n\tAND (((\r\n\t ![GameRawData.Telemetry.SessionFlagsDetails.IsoneLapToGreen]\r\n\t AND ![GameRawData.Telemetry.OnPitRoad]\r\n\t AND [SpeedKmh]<30\r\n\t )\r\n\tOR\r\n\t [GameRawData.Telemetry.OnPitRoad]\r\n\tOR\r\n\t changed(10000,[GameRawData.Telemetry.OnPitRoad]))\r\n\tOR \r\n\t ([GameRawData.Telemetry.PlayerTrackSurface]==0 \r\n\t AND [SpeedKmh]<100))\r\n,true\r\n,false)"
               },
               "Mode": 2
             }
@@ -3824,9 +3822,7 @@
                   "Bindings": {
                     "Left": {
                       "Formula": {
-                        "JSExt": 0,
-                        "Interpreter": 1,
-                        "Expression": "return $prop(\"DonutzSimhubPlugin.DSD.TrackToolCarPosX\")[$prop(\"PlayerLeaderboardPosition\")-1]\r\n/*if(drivertrackpositionpercent([PlayerLeaderboardPosition])>0.5,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])-0.5)*1280,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])+0.5)*1280\r\n\t)\r\n\t\r\n\t*/"
+                        "Expression": "if(drivertrackpositionpercent([PlayerLeaderboardPosition])>0.5,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])-0.5)*1280,\r\n\t(drivertrackpositionpercent([PlayerLeaderboardPosition])+0.5)*1280\r\n\t)"
                       },
                       "Mode": 2
                     },
@@ -3998,9 +3994,7 @@
           "Bindings": {
             "Text": {
               "Formula": {
-                "JSExt": 0,
-                "Interpreter": 1,
-                "Expression": "return 'Profile: ' + $prop(\"variable.settingsProfile\").ProfileName;"
+                "Expression": "'Profile: ' + [DonutzSimhubPlugin.DSD.CurrentProfileProfileName]"
               },
               "Mode": 2
             }
@@ -4077,9 +4071,7 @@
           "Bindings": {
             "Visible": {
               "Formula": {
-                "JSExt": 0,
-                "Interpreter": 1,
-                "Expression": "return isnull($prop(\"variable.settingsProfile\")[\"DriverOnRadioTF\"],true)"
+                "Expression": "[DonutzSimhubPlugin.DSD.CurrentProfileRadioEnabled]"
               },
               "Mode": 2
             }
@@ -4149,33 +4141,51 @@
           "MinimumRefreshIntervalMS": 10.0
         },
         {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 50.0,
-          "Text": "Text",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 0,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#00FFFFFF",
-          "Height": 80.0,
-          "Left": 780.0,
-          "Top": 10.0,
-          "Visible": false,
-          "Width": 500.0,
-          "Name": "TrackSurface",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "JSExt": 0,
-                "Interpreter": 1,
-                "Expression": "return \"Surface: \" + $prop(\"GameRawData.Telemetry.PlayerTrackSurface\") + \" Mat: \" + $prop(\"GameRawData.Telemetry.PlayerTrackSurfaceMaterial\")"
-              },
-              "Mode": 2
+          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.Layer, SimHub.Plugins",
+          "Group": false,
+          "Repetitions": 0,
+          "Childrens": [
+            {
+              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+              "IsTextItem": true,
+              "Font": "Segoe UI",
+              "FontSize": 45.0,
+              "Text": "Text",
+              "TextColor": "#FFFFFFFF",
+              "HorizontalAlignment": 1,
+              "VerticalAlignment": 1,
+              "BackgroundColor": "#FFFF0000",
+              "Height": 410.0,
+              "Left": 360.0,
+              "Top": 250.0,
+              "Visible": true,
+              "BlinkDelay": 100.0,
+              "Width": 550.0,
+              "Name": "TC/ABS Warning",
+              "RenderingSkip": 0,
+              "MinimumRefreshIntervalMS": 0.0,
+              "Bindings": {
+                "Visible": {
+                  "Formula": {
+                    "Expression": "[DonutzSimhubPlugin.DSD.CurrentProfileTcAbsWarning]\r\nAND ([TCLevel] == 0 OR [ABSLevel] == 0)\r\nAND isincreasing(10000, [EngineStarted])"
+                  },
+                  "Mode": 2
+                },
+                "Text": {
+                  "Formula": {
+                    "JSExt": 0,
+                    "Interpreter": 1,
+                    "Expression": "let text = \"Warning!\\n\\n\"\r\n\r\nif ($prop(\"TCLevel\")==0) {\r\n\ttext+=\"TC Level = 0!!!\\n\\n\"\r\n}\r\n\r\nif ($prop(\"ABSLevel\")==0) {\r\n\ttext+=\"ABS Level = 0!!!\"\r\n}\r\n\r\nreturn text"
+                  },
+                  "Mode": 2
+                }
+              }
             }
-          }
+          ],
+          "Visible": true,
+          "Name": "Messages",
+          "RenderingSkip": 0,
+          "MinimumRefreshIntervalMS": 0.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0
