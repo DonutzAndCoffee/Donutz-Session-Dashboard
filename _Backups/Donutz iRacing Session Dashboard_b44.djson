@@ -3738,7 +3738,7 @@
                       "Formula": {
                         "JSExt": 0,
                         "Interpreter": 1,
-                        "Expression": "return $prop(\"DonutzSimhubPlugin.DSD.TrackToolCarPosX\")[repeatindex(0)]"
+                        "Expression": "return $prop(\"DonutzSimhubPlugin.DSD.TrackToolCarPosX\")[repeatindex(0)-1]"
                       },
                       "Mode": 2
                     },

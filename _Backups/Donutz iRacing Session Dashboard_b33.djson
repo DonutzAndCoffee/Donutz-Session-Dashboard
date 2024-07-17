@@ -4141,42 +4141,52 @@
           "MinimumRefreshIntervalMS": 10.0
         },
         {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 50.0,
-          "Text": "Text",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 0,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#00FFFFFF",
-          "Height": 80.0,
-          "Left": 780.0,
-          "Top": 10.0,
-          "Visible": false,
-          "Width": 500.0,
-          "Name": "TrackSurface",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "JSExt": 0,
-                "Interpreter": 1,
-                "Expression": "return \"Surface: \" + $prop(\"GameRawData.Telemetry.PlayerTrackSurface\") + \" Mat: \" + $prop(\"GameRawData.Telemetry.PlayerTrackSurfaceMaterial\")"
-              },
-              "Mode": 2
-            }
-          }
-        },
-        {
           "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.Layer, SimHub.Plugins",
           "Group": false,
           "Repetitions": 0,
+          "Childrens": [
+            {
+              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+              "IsTextItem": true,
+              "Font": "Segoe UI",
+              "FontSize": 90.0,
+              "Text": "Text",
+              "TextColor": "#FFFFFFFF",
+              "HorizontalAlignment": 1,
+              "VerticalAlignment": 1,
+              "BackgroundColor": "#FFFF0000",
+              "Height": 410.0,
+              "Left": 360.0,
+              "Top": 250.0,
+              "Visible": true,
+              "BlinkDelay": 100.0,
+              "BlinkEnabled": true,
+              "Width": 550.0,
+              "Name": "TC/ABS Warning",
+              "RenderingSkip": 0,
+              "MinimumRefreshIntervalMS": 0.0,
+              "Bindings": {
+                "Visible": {
+                  "Formula": {
+                    "Expression": "[DonutzSimhubPlugin.DSD.CurrentProfileTcAbsWarning]\r\nAND ([TCLevel] == 0 OR [ABSLevel] == 0)\r\nAND isincreasing(10000, [EngineStarted])"
+                  },
+                  "Mode": 2
+                },
+                "Text": {
+                  "Formula": {
+                    "JSExt": 0,
+                    "Interpreter": 1,
+                    "Expression": "let text = \"Warning!\\n\\n\"\r\n\r\nif ($prop(\"TCLevel\")==0) {\r\n\ttext+=\"TC Level = 0!!!\\n\\n\"\r\n}\r\n\r\nif ($prop(\"ABSLevel\")==0) {\r\n\ttext+=\"ABS Level = 0!!!\"\r\n}\r\n\r\nreturn text"
+                  },
+                  "Mode": 2
+                }
+              }
+            }
+          ],
           "Visible": true,
           "Name": "Messages",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0
+          "RenderingSkip": 50,
+          "MinimumRefreshIntervalMS": 500.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0

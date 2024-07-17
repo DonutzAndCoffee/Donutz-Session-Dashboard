@@ -106,7 +106,7 @@
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "0ff09887-9faf-4059-92ed-51627818ea83",
+  "Id": "f91889ba-9229-4f98-8829-bef75ee4e375",
   "BaseHeight": 800,
   "BaseWidth": 1280,
   "BackgroundColor": "#FF000000",
@@ -4002,7 +4002,7 @@
               "Formula": {
                 "JSExt": 0,
                 "Interpreter": 1,
-                "Expression": "return 'Profile: ' + $prop(\"variable.settingsProfile\").ProfileName;"
+                "Expression": "//return 'Profile: ' + $prop(\"variable.settingsProfile\").ProfileName;\r\n\r\nreturn 'Profile: ' + $prop(\"DonutzSimhubPlugin.DSD.ProfileName\");"
               },
               "Mode": 2
             }

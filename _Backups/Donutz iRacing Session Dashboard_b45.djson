@@ -106,7 +106,7 @@
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "0e4d69e7-b13f-48c1-9988-6cdcbbd65c08",
+  "Id": "0ff09887-9faf-4059-92ed-51627818ea83",
   "BaseHeight": 800,
   "BaseWidth": 1280,
   "BackgroundColor": "#FF000000",
@@ -3736,7 +3736,9 @@
                   "Bindings": {
                     "Left": {
                       "Formula": {
-                        "Expression": "if(drivertrackpositionpercent(repeatindex(0))>0.5,\r\n\t(drivertrackpositionpercent(repeatindex(0))-0.5)*1280,\r\n\t(drivertrackpositionpercent(repeatindex(0))+0.5)*1280\r\n\t)"
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "return $prop(\"DonutzSimhubPlugin.DSD.TrackToolCarPosX\")[repeatindex(0)]"
                       },
                       "Mode": 2
                     },

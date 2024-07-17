@@ -4149,7 +4149,7 @@
               "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
               "IsTextItem": true,
               "Font": "Segoe UI",
-              "FontSize": 40.0,
+              "FontSize": 30.0,
               "Text": "Text",
               "TextColor": "#FFFFFFFF",
               "HorizontalAlignment": 1,
