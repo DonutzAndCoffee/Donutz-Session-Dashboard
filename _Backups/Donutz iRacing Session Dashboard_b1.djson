@@ -4230,7 +4230,7 @@
               "Bindings": {
                 "Visible": {
                   "Formula": {
-                    "Expression": "isincreasing(10000, [CurrentLap]) OR changed(10000,[DonutzSimhubPlugin.DSD.ShowLapSummary])"
+                    "Expression": "[SessionTypeName] == 'Race' AND\r\n(\r\nisincreasing(10000, [CurrentLap]) OR changed(10000,[DonutzSimhubPlugin.DSD.ShowLapSummary])\r\n)"
                   },
                   "Mode": 2
                 }

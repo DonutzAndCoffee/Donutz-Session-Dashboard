@@ -106,7 +106,7 @@
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "1161f1c8-1a8e-4da8-bfac-34c5f6b53bf5",
+  "Id": "f3fade09-5316-485a-87c1-dfd14ce55483",
   "BaseHeight": 800,
   "BaseWidth": 1280,
   "BackgroundColor": "#FF000000",
@@ -4230,7 +4230,7 @@
               "Bindings": {
                 "Visible": {
                   "Formula": {
-                    "Expression": "isincreasing(10000, [CurrentLap])"
+                    "Expression": "isincreasing(10000, [CurrentLap]) OR changed(10000,[DonutzSimhubPlugin.DSD.ShowLapSummary])"
                   },
                   "Mode": 2
                 }
