@@ -567,7 +567,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");"
                   },
                   "Mode": 2
                 },
@@ -604,7 +604,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\n\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");"
                   },
                   "Mode": 2
                 },
@@ -979,7 +979,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true)"
+                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\"),true)"
                   },
                   "Mode": 2
                 }
@@ -1016,7 +1016,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true)"
+                    "Expression": "return $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing' && isnull($prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\"),true)"
                   },
                   "Mode": 2
                 }
@@ -1385,7 +1385,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");;"
                   },
                   "Mode": 2
                 },
@@ -1422,7 +1422,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nshowiR = isnull($prop(\"variable.settingsProfile\")[\"iRatingTF\"],true);\r\n\r\nreturn bDriver && game && showiR;"
+                    "Expression": "const bDriver = drivername(getopponentleaderboardposition_aheadbehind(-1*repeatindex(0)))!=null;\r\nconst game = $prop(\"DataCorePlugin.CurrentGame\") == 'IRacing';\r\n\r\nreturn bDriver && game && $prop(\"DonutzSimhubPlugin.DSD.CurrentProfileIRatingEnabled\");"
                   },
                   "Mode": 2
                 },
@@ -4149,7 +4149,7 @@
               "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
               "IsTextItem": true,
               "Font": "Segoe UI",
-              "FontSize": 40.0,
+              "FontSize": 45.0,
               "Text": "Text",
               "TextColor": "#FFFFFFFF",
               "HorizontalAlignment": 1,
@@ -4160,7 +4160,6 @@
               "Top": 250.0,
               "Visible": true,
               "BlinkDelay": 100.0,
-              "BlinkEnabled": true,
               "Width": 550.0,
               "Name": "TC/ABS Warning",
               "RenderingSkip": 0,
@@ -4185,8 +4184,8 @@
           ],
           "Visible": true,
           "Name": "Messages",
-          "RenderingSkip": 5,
-          "MinimumRefreshIntervalMS": 50.0
+          "RenderingSkip": 0,
+          "MinimumRefreshIntervalMS": 0.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0
