@@ -4149,7 +4149,7 @@
               "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
               "IsTextItem": true,
               "Font": "Segoe UI",
-              "FontSize": 90.0,
+              "FontSize": 40.0,
               "Text": "Text",
               "TextColor": "#FFFFFFFF",
               "HorizontalAlignment": 1,
@@ -4185,8 +4185,8 @@
           ],
           "Visible": true,
           "Name": "Messages",
-          "RenderingSkip": 50,
-          "MinimumRefreshIntervalMS": 500.0
+          "RenderingSkip": 5,
+          "MinimumRefreshIntervalMS": 50.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0
