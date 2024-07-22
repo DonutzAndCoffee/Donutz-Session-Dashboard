@@ -1,22 +1,10 @@
 {
   "Variables": {
-    "DashboardVariables": [
-      {
-        "VariableName": "TrackedSectorTime",
-        "EvaluateOnlyOnce": false,
-        "OverrideWithParentDashboardVariableWhenAvailable": true,
-        "ValueExpression": {
-          "JSExt": 0,
-          "Interpreter": 1,
-          "Expression": "// Initialisierung des root-Objekts, falls es nicht vorhanden ist\r\nif (root[\"SectorTimes\"] == null) {\r\n    root[\"SectorTimes\"] = [];\r\n}\r\n\r\nif (root[\"oldSectorIndex\"] == null) {\r\n    root[\"oldSectorIndex\"] = $prop(\"CurrentSectorIndex\");\r\n}\r\n\r\nif ($prop(\"GameRawData.Telemetry.SessionTime\")<2) {\r\n    root[\"SectorTimes\"] = [];\r\n    root[\"oldSectorIndex\"] = $prop(\"CurrentSectorIndex\");\r\n    \r\n}\r\n\r\n// Initialisiere das Array für die aktuelle Runde, falls noch nicht vorhanden\r\nif (root[\"SectorTimes\"][$prop(\"CurrentLap\")] == null) {\r\n    root[\"SectorTimes\"][$prop(\"CurrentLap\")] = [];\r\n}\r\n\r\nif ($prop(\"CurrentSectorIndex\") != root[\"oldSectorIndex\"]) {\r\n    // Speichern der Sektorzeit in das Array\r\n    if ($prop(\"CurrentSectorIndex\") == 1)\r\n    {\r\n    \troot[\"SectorTimes\"][$prop(\"CurrentLap\")-1][root[\"oldSectorIndex\"]] = timespantoseconds($prop('IRacingExtraProperties.PreviousSector_00_Time'));\r\n    } \r\n    else \r\n    {\r\n    \troot[\"SectorTimes\"][$prop(\"CurrentLap\")][root[\"oldSectorIndex\"]] = timespantoseconds($prop('IRacingExtraProperties.PreviousSector_00_Time'));\r\n    }\r\n\r\n    // Aktualisiere den alten Sektorindex\r\n    root[\"oldSectorIndex\"] = $prop(\"CurrentSectorIndex\");\r\n}\r\n\r\nreturn root[\"SectorTimes\"];\r\n\r\n\r\n"
-        },
-        "EvaluateBeforeScreenRoles": false
-      }
-    ]
+    "DashboardVariables": []
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "fb2d9621-0823-4c65-96dd-9ee667d96247",
+  "Id": "4e487add-bd93-457c-9e67-ce94b61e33d7",
   "BaseHeight": 400,
   "BaseWidth": 1000,
   "BackgroundColor": "#FF000000",
@@ -411,67 +399,63 @@
           "MinimumRefreshIntervalMS": 0.0
         },
         {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 13.0,
-          "Text": "Text",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 0,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#FF4169E1",
-          "Height": 102.0,
-          "Left": 315.0,
-          "Top": 209.0,
-          "Visible": true,
-          "Width": 545.0,
-          "Name": "SectorsTestText",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "JSExt": 0,
-                "Interpreter": 1,
-                "Expression": "let SecTimes = $prop('variable.TrackedSectorTime');\r\n\r\nvar output = \"\";\r\n\r\n    for (var lapIndex = 1; lapIndex < SecTimes.length; lapIndex++) {\r\n        output += \"\\nRunde \" + (lapIndex) + \": \";\r\n        if (SecTimes[lapIndex] != null) {\r\n            for (var sectorIndex = 0; sectorIndex < SecTimes[lapIndex].length; sectorIndex++) {\r\n                var sectorTime = SecTimes[lapIndex][sectorIndex];\r\n                if (sectorTime != null) {\r\n                    output += \"  Sektor \" + (sectorIndex) + \": \" + sectorTime + \"s \";\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return output;"
-              },
-              "Mode": 2
-            }
-          }
-        },
-        {
           "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.Layer, SimHub.Plugins",
           "Group": false,
-          "Repetitions": 2,
-          "PrepareRepetitions": true,
-          "RepeatLeftOffset": 50.0,
-          "RepeatTopOffset": 0.0,
+          "Repetitions": 0,
           "Childrens": [
             {
               "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
               "IsTextItem": true,
               "Font": "Segoe UI",
-              "FontSize": 19.0,
+              "FontSize": 30.0,
               "Text": "Text",
               "TextColor": "#FFFFFFFF",
               "HorizontalAlignment": 1,
               "VerticalAlignment": 0,
               "BackgroundColor": "#00FFFFFF",
-              "Height": 30.0,
-              "Left": 100.0,
-              "Top": 370.0,
+              "Height": 100.0,
+              "Left": 7.0,
+              "Top": 206.0,
               "Visible": true,
-              "Width": 80.0,
-              "Name": "ComparedDelta",
+              "Width": 100.0,
+              "Name": "TextItem",
               "RenderingSkip": 0,
               "MinimumRefreshIntervalMS": 0.0,
               "Bindings": {
                 "Text": {
-                  "FormatString": "0.0",
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-1][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-2][sectorInScope];\r\n\toutput = (newSectorTime - oldSectorTime);\r\n\t\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                    "Expression": "return 'LAP\\n' + $prop(\"CurrentLap\")"
+                  },
+                  "Mode": 2
+                }
+              }
+            },
+            {
+              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+              "IsTextItem": true,
+              "Font": "Segoe UI",
+              "FontSize": 13.0,
+              "Text": "Text",
+              "TextColor": "#FFFFFFFF",
+              "HorizontalAlignment": 0,
+              "VerticalAlignment": 0,
+              "BackgroundColor": "#FF4169E1",
+              "Height": 102.0,
+              "Left": 314.0,
+              "Top": 294.0,
+              "Visible": false,
+              "Width": 545.0,
+              "Name": "SectorsTestText2",
+              "RenderingSkip": 200,
+              "MinimumRefreshIntervalMS": 2000.0,
+              "Bindings": {
+                "Text": {
+                  "Formula": {
+                    "JSExt": 0,
+                    "Interpreter": 1,
+                    "Expression": "let SecTimes = $prop('DonutzSimhubPlugin.DSD.SectorTimesArray');\r\n\r\nvar output = \"\";\r\n\r\n    for (var lapIndex = 0; lapIndex < SecTimes.length; lapIndex++) {\r\n        output += \"\\nLap \" + (lapIndex+2) + \": \";\r\n        if (SecTimes[lapIndex] != null) {\r\n            for (var sectorIndex = 1; sectorIndex < SecTimes[lapIndex].length; sectorIndex++) {\r\n                var sectorTime = SecTimes[lapIndex][sectorIndex];\r\n                if (sectorTime != null) {\r\n                    output += \"  S-\" + (sectorIndex) + \": \" + sectorTime + \"s \";\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return output;"
                   },
                   "Mode": 2
                 }
@@ -482,184 +466,317 @@
               "IsTextItem": true,
               "Font": "Segoe UI",
               "FontSize": 19.0,
-              "Text": "Text",
+              "Text": "Last Lap",
               "TextColor": "#FFFFFFFF",
-              "HorizontalAlignment": 1,
+              "HorizontalAlignment": 2,
               "VerticalAlignment": 0,
               "BackgroundColor": "#00FFFFFF",
               "Height": 30.0,
-              "Left": 100.0,
-              "Top": 350.0,
-              "Visible": true,
-              "Width": 80.0,
-              "Name": "CompareLapSectors",
-              "RenderingSkip": 0,
-              "MinimumRefreshIntervalMS": 0.0,
-              "Bindings": {
-                "Text": {
-                  "FormatString": "0.0",
-                  "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "let currentLap = $prop(\"CurrentLap\")-1;\r\nlet output = \"-\";\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\n\r\nif ((currentLap > 1) && (sectorTimes != null))\r\n{\r\n\tlet sectorInScope = repeatindex(0);\r\n\tif (sectorTimes[currentLap-1][sectorInScope]!=null)\r\n\t{\r\n\t\toutput = sectorTimes[currentLap-1][sectorInScope];\r\n\t}\r\n}\r\n\r\nreturn output;"
-                  },
-                  "Mode": 2
-                }
-              }
-            },
-            {
-              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-              "IsTextItem": true,
-              "Font": "Segoe UI",
-              "FontSize": 19.0,
-              "Text": "Text",
-              "TextColor": "#FFFFFFFF",
-              "HorizontalAlignment": 1,
-              "VerticalAlignment": 0,
-              "BackgroundColor": "#00FFFFFF",
-              "Height": 30.0,
-              "Left": 100.0,
+              "Left": 22.0,
               "Top": 330.0,
               "Visible": true,
               "Width": 80.0,
-              "Name": "LastLapSectors",
+              "Name": "LastLapLabel",
               "RenderingSkip": 0,
               "MinimumRefreshIntervalMS": 0.0,
               "Bindings": {
                 "Text": {
-                  "FormatString": "0.0",
                   "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "let currentLap = $prop(\"CurrentLap\");\r\nlet output = \"-\";\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\n\r\nif ((currentLap > 1) && (sectorTimes != null))\r\n{\r\n\tlet sectorInScope = repeatindex(0);\r\n\tif (sectorTimes[currentLap-1][sectorInScope]!=null)\r\n\t{\r\n\t\toutput = sectorTimes[currentLap-1][sectorInScope];\r\n\t}\r\n}\r\n\r\nreturn output;"
+                    "Expression": "'Lap ' + ([CurrentLap]-1)"
                   },
                   "Mode": 2
                 }
               }
-            },
-            {
-              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.RectangleItem, SimHub.Plugins",
-              "IsRectangleItem": true,
-              "BackgroundColor": "#FF008000",
-              "BorderStyle": {
-                "BorderTop": 2,
-                "BorderBottom": 2,
-                "BorderLeft": 2,
-                "BorderRight": 2
-              },
-              "Height": 50.0,
-              "Left": 126.0,
-              "Top": 281.0,
-              "Visible": true,
-              "Width": 30.0,
-              "Name": "NegativeBar",
-              "RenderingSkip": 0,
-              "MinimumRefreshIntervalMS": 0.0,
-              "Bindings": {
-                "Visible": {
-                  "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = false;\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-1][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-2][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime < 0)\r\n\t{\r\n\t\toutput = true;\r\n\t}\r\n}\r\n} catch(err) {}\r\nreturn output;"
-                  },
-                  "Mode": 2
-                },
-                "Height": {
-                  "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-1][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-2][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime < -1)\r\n\t{\r\n\t\toutput = 50;\r\n\t} \r\n\telse if (newSectorTime - oldSectorTime < 0)\r\n\t{\r\n\t\toutput = 50 * (newSectorTime - oldSectorTime) * -1;\r\n\t}\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
-                  },
-                  "Mode": 2
-                }
-              }
-            },
-            {
-              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.RectangleItem, SimHub.Plugins",
-              "IsRectangleItem": true,
-              "BackgroundColor": "#FFFF0000",
-              "BorderStyle": {
-                "BorderTop": 2,
-                "BorderBottom": 2,
-                "BorderLeft": 2,
-                "BorderRight": 2
-              },
-              "Height": 50.0,
-              "Left": 126.0,
-              "Top": 232.0,
-              "Visible": true,
-              "Width": 30.0,
-              "Name": "PositiveBar",
-              "RenderingSkip": 0,
-              "MinimumRefreshIntervalMS": 0.0,
-              "Bindings": {
-                "Visible": {
-                  "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = false;\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-1][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-2][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime > 0)\r\n\t{\r\n\t\toutput = true;\r\n\t}\r\n}\r\n} catch(err) {}\r\nreturn output;"
-                  },
-                  "Mode": 2
-                },
-                "Height": {
-                  "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-1][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-2][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime > 1)\r\n\t{\r\n\t\toutput = 50;\r\n\t} \r\n\telse if (newSectorTime - oldSectorTime > 0)\r\n\t{\r\n\t\toutput = 50 * (newSectorTime - oldSectorTime);\r\n\t}\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
-                  },
-                  "Mode": 2
-                },
-                "Top": {
-                  "Formula": {
-                    "JSExt": 0,
-                    "Interpreter": 1,
-                    "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop('variable.TrackedSectorTime');\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-1][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-2][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime > 1)\r\n\t{\r\n\t\toutput = 232;\r\n\t} \r\n\telse if (newSectorTime - oldSectorTime > 0)\r\n\t{\r\n\t\toutput = 232 + 50 - (50 * (newSectorTime - oldSectorTime));\r\n\t}\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
-                  },
-                  "Mode": 2
-                }
-              }
-            },
-            {
-              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.RectangleItem, SimHub.Plugins",
-              "IsRectangleItem": true,
-              "BackgroundColor": "#00FFFFFF",
-              "BorderStyle": {
-                "BorderTop": 2,
-                "BorderBottom": 2,
-                "BorderLeft": 2,
-                "BorderRight": 2
-              },
-              "Height": 2.0,
-              "Left": 116.0,
-              "Top": 281.0,
-              "Visible": true,
-              "Width": 50.0,
-              "Name": "ZeroLine",
-              "RenderingSkip": 0,
-              "MinimumRefreshIntervalMS": 0.0
             },
             {
               "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
               "IsTextItem": true,
               "Font": "Segoe UI",
-              "FontSize": 15.0,
-              "Text": "25",
-              "TextColor": "#FF000000",
-              "HorizontalAlignment": 1,
-              "VerticalAlignment": 1,
-              "BackgroundColor": "#FFFFFFFF",
-              "Height": 20.0,
-              "Left": 131.0,
-              "Top": 210.0,
+              "FontSize": 19.0,
+              "Text": "Last Lap",
+              "TextColor": "#FFFFFFFF",
+              "HorizontalAlignment": 2,
+              "VerticalAlignment": 0,
+              "BackgroundColor": "#00FFFFFF",
+              "Height": 30.0,
+              "Left": 22.0,
+              "Top": 350.0,
               "Visible": true,
-              "Width": 20.0,
-              "Name": "SectorLabel",
+              "Width": 80.0,
+              "Name": "CompareLapLabel",
               "RenderingSkip": 0,
               "MinimumRefreshIntervalMS": 0.0,
               "Bindings": {
                 "Text": {
                   "Formula": {
-                    "Expression": "repeatindex(0)"
+                    "Expression": "'Lap ' + ([CurrentLap]-2)"
+                  },
+                  "Mode": 2
+                }
+              }
+            },
+            {
+              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+              "IsTextItem": true,
+              "Font": "Segoe UI",
+              "FontSize": 19.0,
+              "Text": "Last Lap",
+              "TextColor": "#FFFFFFFF",
+              "HorizontalAlignment": 2,
+              "VerticalAlignment": 0,
+              "BackgroundColor": "#00FFFFFF",
+              "Height": 30.0,
+              "Left": 22.0,
+              "Top": 370.0,
+              "Visible": true,
+              "Width": 80.0,
+              "Name": "DeltaLabel",
+              "RenderingSkip": 0,
+              "MinimumRefreshIntervalMS": 0.0,
+              "Bindings": {
+                "Text": {
+                  "Formula": {
+                    "Expression": "'Delta'"
+                  },
+                  "Mode": 2
+                }
+              }
+            },
+            {
+              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.Layer, SimHub.Plugins",
+              "Group": false,
+              "Repetitions": 2,
+              "PrepareRepetitions": true,
+              "RepeatLeftOffset": 50.0,
+              "RepeatTopOffset": 0.0,
+              "Childrens": [
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+                  "IsTextItem": true,
+                  "Font": "Segoe UI",
+                  "FontSize": 19.0,
+                  "Text": "Text",
+                  "TextColor": "#FFFFFFFF",
+                  "HorizontalAlignment": 1,
+                  "VerticalAlignment": 0,
+                  "BackgroundColor": "#00FFFFFF",
+                  "Height": 30.0,
+                  "Left": 100.0,
+                  "Top": 370.0,
+                  "Visible": true,
+                  "Width": 80.0,
+                  "Name": "ComparedDelta",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0,
+                  "Bindings": {
+                    "Text": {
+                      "FormatString": "0.0",
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-3][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-4][sectorInScope];\r\n\toutput = (newSectorTime - oldSectorTime);\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    }
+                  }
+                },
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+                  "IsTextItem": true,
+                  "Font": "Segoe UI",
+                  "FontSize": 19.0,
+                  "Text": "Text",
+                  "TextColor": "#FFFFFFFF",
+                  "HorizontalAlignment": 1,
+                  "VerticalAlignment": 0,
+                  "BackgroundColor": "#00FFFFFF",
+                  "Height": 30.0,
+                  "Left": 100.0,
+                  "Top": 350.0,
+                  "Visible": true,
+                  "Width": 80.0,
+                  "Name": "CompareLapSectors",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0,
+                  "Bindings": {
+                    "Text": {
+                      "FormatString": "0.0",
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "let currentLap = $prop(\"CurrentLap\")-1;\r\nlet correctedLap = currentLap - 3;\r\n\r\nlet output = \"-\";\r\ntry{\r\n\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\n\r\nif ((currentLap > 1) && (sectorTimes != null))\r\n{\r\n\tlet sectorInScope = repeatindex(0);\r\n\tif (sectorTimes[correctedLap][sectorInScope]!=null)\r\n\t{\r\n\t\toutput = sectorTimes[correctedLap][sectorInScope];\r\n\t}\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    }
+                  }
+                },
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+                  "IsTextItem": true,
+                  "Font": "Segoe UI",
+                  "FontSize": 19.0,
+                  "Text": "Text",
+                  "TextColor": "#FFFFFFFF",
+                  "HorizontalAlignment": 1,
+                  "VerticalAlignment": 0,
+                  "BackgroundColor": "#00FFFFFF",
+                  "Height": 30.0,
+                  "Left": 100.0,
+                  "Top": 330.0,
+                  "Visible": true,
+                  "Width": 80.0,
+                  "Name": "LastLapSectors",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0,
+                  "Bindings": {
+                    "Text": {
+                      "FormatString": "0.0",
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "let currentLap = $prop(\"CurrentLap\");\r\nlet correctedLap = currentLap - 3;\r\n\r\nlet output = \"-\";\r\ntry{\r\n\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\n\r\nif ((currentLap > 1) && (sectorTimes != null))\r\n{\r\n\tlet sectorInScope = repeatindex(0);\r\n\tif (sectorTimes[correctedLap][sectorInScope]!=null)\r\n\t{\r\n\t\toutput = sectorTimes[correctedLap][sectorInScope];\r\n\t}\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    }
+                  }
+                },
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.RectangleItem, SimHub.Plugins",
+                  "IsRectangleItem": true,
+                  "BackgroundColor": "#FF008000",
+                  "BorderStyle": {
+                    "BorderTop": 2,
+                    "BorderBottom": 2,
+                    "BorderLeft": 2,
+                    "BorderRight": 2
+                  },
+                  "Height": 50.0,
+                  "Left": 126.0,
+                  "Top": 281.0,
+                  "Visible": true,
+                  "Width": 30.0,
+                  "Name": "NegativeBar",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0,
+                  "Bindings": {
+                    "Visible": {
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = false;\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-3][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-4][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime < 0)\r\n\t{\r\n\t\toutput = true;\r\n\t}\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    },
+                    "Height": {
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-3][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-4][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime < -1)\r\n\t{\r\n\t\toutput = 50;\r\n\t} \r\n\telse if (newSectorTime - oldSectorTime < 0)\r\n\t{\r\n\t\toutput = 50 * (newSectorTime - oldSectorTime) * -1;\r\n\t}\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    }
+                  }
+                },
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.RectangleItem, SimHub.Plugins",
+                  "IsRectangleItem": true,
+                  "BackgroundColor": "#FFFF0000",
+                  "BorderStyle": {
+                    "BorderTop": 2,
+                    "BorderBottom": 2,
+                    "BorderLeft": 2,
+                    "BorderRight": 2
+                  },
+                  "Height": 50.0,
+                  "Left": 126.0,
+                  "Top": 232.0,
+                  "Visible": true,
+                  "Width": 30.0,
+                  "Name": "PositiveBar",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0,
+                  "Bindings": {
+                    "Visible": {
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = false;\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-3][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-4][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime > 0)\r\n\t{\r\n\t\toutput = true;\r\n\t}\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    },
+                    "Height": {
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-3][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-4][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime > 1)\r\n\t{\r\n\t\toutput = 50;\r\n\t} \r\n\telse if (newSectorTime - oldSectorTime > 0)\r\n\t{\r\n\t\toutput = 50 * (newSectorTime - oldSectorTime);\r\n\t}\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    },
+                    "Top": {
+                      "Formula": {
+                        "JSExt": 0,
+                        "Interpreter": 1,
+                        "Expression": "var currentLap = $prop(\"CurrentLap\");\r\nlet output = 0;\r\n//let sectorTimes = $prop('variable.TrackedSectorTime');\r\nlet sectorTimes = $prop(\"DonutzSimhubPlugin.DSD.SectorTimesArray\");\r\ntry{\r\nif ((currentLap >= 2) && (sectorTimes != null))\r\n{\r\n\t\r\n\tlet sectorInScope = repeatindex(0);\r\n\tlet newSectorTime = sectorTimes[currentLap-3][sectorInScope];\r\n\tlet oldSectorTime = sectorTimes[currentLap-4][sectorInScope];\r\n\tif (newSectorTime - oldSectorTime > 1)\r\n\t{\r\n\t\toutput = 232;\r\n\t} \r\n\telse if (newSectorTime - oldSectorTime > 0)\r\n\t{\r\n\t\toutput = 232 + 50 - (50 * (newSectorTime - oldSectorTime));\r\n\t}\r\n\r\n}\r\n} catch(err) {}\r\nreturn output;"
+                      },
+                      "Mode": 2
+                    }
+                  }
+                },
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.RectangleItem, SimHub.Plugins",
+                  "IsRectangleItem": true,
+                  "BackgroundColor": "#00FFFFFF",
+                  "BorderStyle": {
+                    "BorderTop": 2,
+                    "BorderBottom": 2,
+                    "BorderLeft": 2,
+                    "BorderRight": 2
+                  },
+                  "Height": 2.0,
+                  "Left": 116.0,
+                  "Top": 281.0,
+                  "Visible": true,
+                  "Width": 50.0,
+                  "Name": "ZeroLine",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0
+                },
+                {
+                  "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+                  "IsTextItem": true,
+                  "Font": "Segoe UI",
+                  "FontSize": 15.0,
+                  "Text": "25",
+                  "TextColor": "#FF000000",
+                  "HorizontalAlignment": 1,
+                  "VerticalAlignment": 1,
+                  "BackgroundColor": "#FFFFFFFF",
+                  "Height": 20.0,
+                  "Left": 131.0,
+                  "Top": 210.0,
+                  "Visible": true,
+                  "Width": 20.0,
+                  "Name": "SectorLabel",
+                  "RenderingSkip": 0,
+                  "MinimumRefreshIntervalMS": 0.0,
+                  "Bindings": {
+                    "Text": {
+                      "Formula": {
+                        "Expression": "repeatindex(0)"
+                      },
+                      "Mode": 2
+                    }
+                  }
+                }
+              ],
+              "Visible": true,
+              "Name": "Sectors",
+              "RenderingSkip": 20,
+              "MinimumRefreshIntervalMS": 200.0,
+              "Bindings": {
+                "Repetitions": {
+                  "Formula": {
+                    "Expression": "[SectorsCount]"
                   },
                   "Mode": 2
                 }
@@ -667,127 +784,9 @@
             }
           ],
           "Visible": true,
-          "Name": "Sectors",
-          "RenderingSkip": 20,
-          "MinimumRefreshIntervalMS": 200.0,
-          "Bindings": {
-            "Repetitions": {
-              "Formula": {
-                "Expression": "[SectorsCount]"
-              },
-              "Mode": 2
-            }
-          }
-        },
-        {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 19.0,
-          "Text": "Last Lap",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 2,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#00FFFFFF",
-          "Height": 30.0,
-          "Left": 22.0,
-          "Top": 370.0,
-          "Visible": true,
-          "Width": 80.0,
-          "Name": "DeltaLabel",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "Expression": "'Delta'"
-              },
-              "Mode": 2
-            }
-          }
-        },
-        {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 19.0,
-          "Text": "Last Lap",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 2,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#00FFFFFF",
-          "Height": 30.0,
-          "Left": 22.0,
-          "Top": 350.0,
-          "Visible": true,
-          "Width": 80.0,
-          "Name": "CompareLapLabel",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "Expression": "'Lap ' + ([CurrentLap]-2)"
-              },
-              "Mode": 2
-            }
-          }
-        },
-        {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 19.0,
-          "Text": "Last Lap",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 2,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#00FFFFFF",
-          "Height": 30.0,
-          "Left": 22.0,
-          "Top": 330.0,
-          "Visible": true,
-          "Width": 80.0,
-          "Name": "LastLapLabel",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "Expression": "'Lap ' + ([CurrentLap]-1)"
-              },
-              "Mode": 2
-            }
-          }
-        },
-        {
-          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
-          "IsTextItem": true,
-          "Font": "Segoe UI",
-          "FontSize": 13.0,
-          "Text": "Text",
-          "TextColor": "#FFFFFFFF",
-          "HorizontalAlignment": 0,
-          "VerticalAlignment": 0,
-          "BackgroundColor": "#FF4169E1",
-          "Height": 102.0,
-          "Left": 314.0,
-          "Top": 294.0,
-          "Visible": true,
-          "Width": 545.0,
-          "Name": "SectorsTestText2",
-          "RenderingSkip": 0,
-          "MinimumRefreshIntervalMS": 0.0,
-          "Bindings": {
-            "Text": {
-              "Formula": {
-                "JSExt": 0,
-                "Interpreter": 1,
-                "Expression": "let SecTimes = $prop('DonutzSimhubPlugin.DSD.SectorTimesArray');\r\n\r\nvar output = \"\";\r\n\r\n    for (var lapIndex = 0; lapIndex < SecTimes.length-1; lapIndex++) {\r\n        output += \"\\nRunde \" + (lapIndex) + \": \";\r\n        if (SecTimes[lapIndex] != null) {\r\n            for (var sectorIndex = 0; sectorIndex < SecTimes[lapIndex].length; sectorIndex++) {\r\n                var sectorTime = SecTimes[lapIndex][sectorIndex];\r\n                if (sectorTime != null) {\r\n                    output += \"  Sektor \" + (sectorIndex) + \": \" + sectorTime + \"s \";\r\n                }\r\n            }\r\n        }\r\n    }\r\n    return output;"
-              },
-              "Mode": 2
-            }
-          }
+          "Name": "SectorTool",
+          "RenderingSkip": 100,
+          "MinimumRefreshIntervalMS": 1000.0
         }
       ],
       "MinimumRefreshIntervalMS": 0.0
