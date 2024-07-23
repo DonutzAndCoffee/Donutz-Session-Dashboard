@@ -106,7 +106,7 @@
   },
   "DashboardDebugManager": {},
   "Version": 2,
-  "Id": "f3fade09-5316-485a-87c1-dfd14ce55483",
+  "Id": "903ecf2e-5afd-454d-acfc-aceee97f1272",
   "BaseHeight": 800,
   "BaseWidth": 1280,
   "BackgroundColor": "#FF000000",
@@ -1998,7 +1998,7 @@
                   "Formula": {
                     "JSExt": 0,
                     "Interpreter": 1,
-                    "Expression": "if ($prop(\"Flag_White\")) {\r\n\t\treturn '~1'\r\n\t} \r\nelse if (($prop(\"GameRawData.SessionData.SessionInfo.Sessions01.SessionLaps\")!='unlimited') \r\n ||($prop('GameRawData.SessionData.SessionInfo.Sessions01.IsLimitedSessionLaps'))){\r\n\treturn $prop('GameRawData.Telemetry.SessionLapsRemain');\r\n} \r\nelse {\r\n\tif ((timespantoseconds($prop(\"LastLapTime\"))>0) && (!$prop('Flag_Checkered'))) {\r\n\t\treturn '~' + Math.round(1+(timespantoseconds($prop(\"SessionTimeLeft\")) / $prop(\"variable.avgLapTime\")),1)\r\n\t} else {\r\n\t\treturn '-';\r\n\t}\r\n}"
+                    "Expression": "if ($prop(\"SessionTypeName\") == 'Offline Testing') \r\n{\r\n\treturn '-';\r\n}\r\nif ($prop(\"Flag_White\")) {\r\n\t\treturn '~1'\r\n\t} \r\nelse if (($prop(\"GameRawData.SessionData.SessionInfo.Sessions01.SessionLaps\")!='unlimited') \r\n ||($prop('GameRawData.SessionData.SessionInfo.Sessions01.IsLimitedSessionLaps'))){\r\n\treturn $prop('GameRawData.Telemetry.SessionLapsRemain');\r\n} \r\nelse {\r\n\tif (\r\n\t\t(timespantoseconds($prop(\"LastLapTime\"))>0) \r\n\t\t && (!$prop('Flag_Checkered'))) {\r\n\t\treturn '~' + Math.round(1+(timespantoseconds($prop(\"SessionTimeLeft\")) / $prop(\"variable.avgLapTime\")),1)\r\n\t} else {\r\n\t\treturn '-';\r\n\t}\r\n}"
                   },
                   "Mode": 2
                 }
@@ -3973,7 +3973,7 @@
           "Bindings": {
             "Text": {
               "Formula": {
-                "Expression": "'github.com/DonutzAndCoffee v2024-07-17'"
+                "Expression": "'github.com/DonutzAndCoffee v2024-07-18'"
               },
               "Mode": 2
             }
@@ -4171,6 +4171,36 @@
           "Repetitions": 0,
           "Childrens": [
             {
+              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.WidgetItem, SimHub.Plugins",
+              "Variables": {
+                "DashboardVariables": []
+              },
+              "NextScreenCommand": 0,
+              "PreviousScreenCommand": 0,
+              "AutoSize": true,
+              "FileName": "LapResults.djson",
+              "InitialScreenIndex": 0,
+              "FreezePageChanges": false,
+              "EnableScreenRolesAndActivation": true,
+              "BackgroundColor": "#00FFFFFF",
+              "Height": 400.0,
+              "Left": 200.0,
+              "Top": 170.0,
+              "Visible": true,
+              "Width": 1000.0,
+              "Name": "LapResults",
+              "RenderingSkip": 20,
+              "MinimumRefreshIntervalMS": 200.0,
+              "Bindings": {
+                "Visible": {
+                  "Formula": {
+                    "Expression": "(\r\nisincreasing(10000, [CurrentLap]) OR changed(10000,[DonutzSimhubPlugin.DSD.ShowLapSummary])\r\n)"
+                  },
+                  "Mode": 2
+                }
+              }
+            },
+            {
               "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
               "IsTextItem": true,
               "Font": "Segoe UI",
@@ -4201,36 +4231,6 @@
                     "JSExt": 0,
                     "Interpreter": 1,
                     "Expression": "let text = \"Warning!\\n\\n\"\r\n\r\nif ($prop(\"TCLevel\")==0) {\r\n\ttext+=\"TC Level = 0!!!\\n\\n\"\r\n}\r\n\r\nif ($prop(\"ABSLevel\")==0) {\r\n\ttext+=\"ABS Level = 0!!!\"\r\n}\r\n\r\nreturn text"
-                  },
-                  "Mode": 2
-                }
-              }
-            },
-            {
-              "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.WidgetItem, SimHub.Plugins",
-              "Variables": {
-                "DashboardVariables": []
-              },
-              "NextScreenCommand": 0,
-              "PreviousScreenCommand": 0,
-              "AutoSize": true,
-              "FileName": "LapResults.djson",
-              "InitialScreenIndex": 0,
-              "FreezePageChanges": false,
-              "EnableScreenRolesAndActivation": true,
-              "BackgroundColor": "#00FFFFFF",
-              "Height": 300.0,
-              "Left": 200.0,
-              "Top": 170.0,
-              "Visible": true,
-              "Width": 1000.0,
-              "Name": "LapResults",
-              "RenderingSkip": 20,
-              "MinimumRefreshIntervalMS": 200.0,
-              "Bindings": {
-                "Visible": {
-                  "Formula": {
-                    "Expression": "[SessionTypeName] == 'Race' AND\r\n(\r\nisincreasing(10000, [CurrentLap]) OR changed(10000,[DonutzSimhubPlugin.DSD.ShowLapSummary])\r\n)"
                   },
                   "Mode": 2
                 }
