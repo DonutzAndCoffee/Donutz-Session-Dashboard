@@ -1,13 +1,17 @@
-const json_settings = readtextfile("./DashTemplates/Donutz iRacing Session Dashboard/JavascriptExtensions/settings.json")
-const settings = JSON.parse(json_settings);
-
-function returnSettings() {
-	return settings;
+function addText(strLabel, strValue)
+{
+	if (strValue != null)
+	{
+		return strLabel + ' ' + strValue + '\n';
+	}
 }
 
-function filterProfilesBySessionType(data, sessionType) {
-            const lowerCaseSessionType = sessionType.toLowerCase();
-            return data.IRacing.Profiles.filter(profile =>
-                profile.SessionTypes.some(type => type.toLowerCase() === lowerCaseSessionType)
-            );
-        }
+function convertToMinutes(strSeconds)
+{
+	if (strSeconds.indexOf('sec') > -1)
+	{
+		intSeconds = strSeconds.substring(0,strSeconds.indexOf('.'));
+	}
+	intMinutes = intSeconds / 60;
+	return intMinutes
+}
