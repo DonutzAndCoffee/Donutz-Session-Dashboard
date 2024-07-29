@@ -3,7 +3,7 @@
 <br>Please note that this is still work in progress. Let me know if you find any bugs.
 Highlights:
 - Config profiles filtered by Race, Qualify and Practive/Test sessions
-- lap summary popup (10 secs automatically after each completed lap and manually by button)
+- lap summary, standings and weekend info popups (10 secs automatically after each completed lap and manually by button)
 - rejoin indicator for pit stops and spin situations
 - tiny "horizontal" track map which shows position of all drivers (on track and on pit road)
 - iRating with different color code than usual. iRating which is 500+ higher than yours will be marked with red color
