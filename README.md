@@ -18,6 +18,5 @@ Highlights:
 <br>Buy me a coffee if you want at [Paypal](https://paypal.me/donutz75?country.x=DE&locale.x=de_DE).
 
 ## Short Youtube demo
-![2024-07-29 16_26_42-Donutz iRacing Dashboard (HTML Renderer)](https://github.com/user-attachments/assets/d9263214-f418-4aff-8078-a617fff5cc44)
-(https://www.youtube.com/watch?v=D7Y6HRQqw9Y)
+
 
