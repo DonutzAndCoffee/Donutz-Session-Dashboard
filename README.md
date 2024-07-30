@@ -32,5 +32,4 @@ Highlights:
 
 
 ## Short Youtube demo
-[![https://www.youtube.com/watch?v=QI3ehugcwWY](https://www.youtube.com/watch?v=QI3ehugcwWY)]
-[![Youtube](https://img.youtube.com/vi/QI3ehugcwWY/0.jpg)](https://www.youtube.com/watch?v=QI3ehugcwWY)
+https://www.youtube.com/watch?v=D7Y6HRQqw9Y
