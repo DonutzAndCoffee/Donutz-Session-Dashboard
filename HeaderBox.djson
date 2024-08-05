@@ -1,1 +1,140 @@
-{"Variables":{"DashboardVariables":[]},"DashboardDebugManager":{},"Version":2,"Id":"853e9794-88f7-4a2f-adcc-07ac7f7e0cc3","BaseHeight":110,"BaseWidth":1280,"BackgroundColor":"#FF000000","Screens":[{"RenderingSkip":0,"Name":"Screen1","InGameScreen":true,"IdleScreen":true,"PitScreen":false,"ScreenId":"528c0537-dab9-48b5-b1d7-fca0d02e108c","AllowOverlays":true,"IsForegroundLayer":false,"IsOverlayLayer":false,"OverlayTriggerExpression":{"Expression":""},"ScreenEnabledExpression":{"Expression":""},"OverlayMaxDuration":0,"OverlayMinDuration":0,"IsBackgroundLayer":false,"BackgroundColor":"#FF000000","Items":[{"$type":"SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins","IsTextItem":true,"Font":"Segoe UI","FontSize":103.0,"Text":"Text","TextColor":"#FFFFFFFF","HorizontalAlignment":1,"VerticalAlignment":1,"BackgroundColor":"#00FFFFFF","Height":110.0,"Left":0.0,"Top":0.0,"Visible":true,"Width":1280.0,"Name":"Delta","RenderingSkip":0,"MinimumRefreshIntervalMS":0.0,"Bindings":{"Text":{"FormatString":"0.00","Formula":{"Expression":"[DeltaToSessionBest]"},"Mode":2},"BackgroundColor":{"Formula":{"Expression":"[DeltaToSessionBest]"},"StartColor":"#FF008000","EnableMiddleColor":true,"MiddleColor":"#00FFFFFF","MiddleColorValue":0.0,"EndColor":"#FFFF0000","StartColorValue":-0.5,"EndColorValue":0.5,"Mode":4},"Visible":{"Formula":{"Expression":"[SessionTypeName]<>'Race'"},"Mode":2}}}],"MinimumRefreshIntervalMS":0.0},{"RenderingSkip":0,"Name":"Screen2","InGameScreen":true,"IdleScreen":true,"PitScreen":false,"ScreenId":"af69fac9-5338-42a7-8eb8-f25c3bbc35c9","AllowOverlays":true,"IsForegroundLayer":false,"IsOverlayLayer":false,"OverlayTriggerExpression":{"Expression":""},"ScreenEnabledExpression":{"Expression":""},"OverlayMaxDuration":0,"OverlayMinDuration":0,"IsBackgroundLayer":false,"BackgroundColor":"#FF000000","Items":[],"MinimumRefreshIntervalMS":0.0}],"SnapToGrid":false,"HideLabels":false,"ShowForeground":true,"ForegroundOpacity":100.0,"ShowBackground":true,"BackgroundOpacity":100.0,"ShowBoundingRectangles":false,"GridSize":10,"Images":[],"Metadata":{"SimHubVersion":"9.3.0b1","ScreenCount":2.0,"InGameScreensIndexs":[0,1],"IdleScreensIndexs":[0,1],"MainPreviewIndex":0,"IsOverlay":false,"Width":1280.0,"Height":110.0,"OverlaySizeWarning":false,"MetadataVersion":2.0,"EnableOnDashboardMessaging":true,"PitScreensIndexs":[]},"ShowOnScreenControls":true,"IsOverlay":false,"EnableClickThroughOverlay":true,"EnableOnDashboardMessaging":true}
+{
+  "Variables": {
+    "DashboardVariables": []
+  },
+  "DashboardDebugManager": {},
+  "Version": 2,
+  "Id": "8ad00005-01f0-4c73-92b8-649d5ac194c6",
+  "BaseHeight": 110,
+  "BaseWidth": 800,
+  "BackgroundColor": "#FF000000",
+  "Screens": [
+    {
+      "RenderingSkip": 0,
+      "Name": "Screen1",
+      "InGameScreen": true,
+      "IdleScreen": true,
+      "PitScreen": false,
+      "ScreenId": "528c0537-dab9-48b5-b1d7-fca0d02e108c",
+      "AllowOverlays": true,
+      "IsForegroundLayer": false,
+      "IsOverlayLayer": false,
+      "OverlayTriggerExpression": {
+        "Expression": ""
+      },
+      "ScreenEnabledExpression": {
+        "Expression": ""
+      },
+      "OverlayMaxDuration": 0,
+      "OverlayMinDuration": 0,
+      "IsBackgroundLayer": false,
+      "BackgroundColor": "#FF000000",
+      "Items": [
+        {
+          "$type": "SimHub.Plugins.OutputPlugins.GraphicalDash.Models.TextItem, SimHub.Plugins",
+          "IsTextItem": true,
+          "Font": "Consolas",
+          "FontSize": 103.0,
+          "Text": "Text",
+          "TextColor": "#FFFFFFFF",
+          "HorizontalAlignment": 1,
+          "VerticalAlignment": 1,
+          "BackgroundColor": "#00FFFFFF",
+          "Height": 110.0,
+          "Left": 0.0,
+          "Top": 0.0,
+          "Visible": true,
+          "Width": 800.0,
+          "Name": "Delta",
+          "RenderingSkip": 0,
+          "MinimumRefreshIntervalMS": 0.0,
+          "Bindings": {
+            "Text": {
+              "FormatString": "0.00",
+              "Formula": {
+                "Expression": "[DeltaToSessionBest]"
+              },
+              "Mode": 2
+            },
+            "BackgroundColor": {
+              "Formula": {
+                "Expression": "[DeltaToSessionBest]"
+              },
+              "StartColor": "#FF008000",
+              "EnableMiddleColor": true,
+              "MiddleColor": "#00FFFFFF",
+              "MiddleColorValue": 0.0,
+              "EndColor": "#FFFF0000",
+              "StartColorValue": -0.5,
+              "EndColorValue": 0.5,
+              "Mode": 4
+            },
+            "Visible": {
+              "Formula": {
+                "Expression": "[SessionTypeName]<>'Race'"
+              },
+              "Mode": 2
+            }
+          }
+        }
+      ],
+      "MinimumRefreshIntervalMS": 0.0
+    },
+    {
+      "RenderingSkip": 0,
+      "Name": "Screen2",
+      "InGameScreen": true,
+      "IdleScreen": true,
+      "PitScreen": false,
+      "ScreenId": "af69fac9-5338-42a7-8eb8-f25c3bbc35c9",
+      "AllowOverlays": true,
+      "IsForegroundLayer": false,
+      "IsOverlayLayer": false,
+      "OverlayTriggerExpression": {
+        "Expression": ""
+      },
+      "ScreenEnabledExpression": {
+        "Expression": ""
+      },
+      "OverlayMaxDuration": 0,
+      "OverlayMinDuration": 0,
+      "IsBackgroundLayer": false,
+      "BackgroundColor": "#FF000000",
+      "Items": [],
+      "MinimumRefreshIntervalMS": 0.0
+    }
+  ],
+  "SnapToGrid": false,
+  "HideLabels": false,
+  "ShowForeground": true,
+  "ForegroundOpacity": 100.0,
+  "ShowBackground": true,
+  "BackgroundOpacity": 100.0,
+  "ShowBoundingRectangles": false,
+  "GridSize": 10,
+  "Images": [],
+  "Metadata": {
+    "SimHubVersion": "9.3.9",
+    "ScreenCount": 2.0,
+    "InGameScreensIndexs": [
+      0,
+      1
+    ],
+    "IdleScreensIndexs": [
+      0,
+      1
+    ],
+    "MainPreviewIndex": 0,
+    "IsOverlay": false,
+    "Width": 800.0,
+    "Height": 110.0,
+    "OverlaySizeWarning": false,
+    "MetadataVersion": 2.0,
+    "EnableOnDashboardMessaging": true,
+    "PitScreensIndexs": []
+  },
+  "ShowOnScreenControls": true,
+  "IsOverlay": false,
+  "EnableClickThroughOverlay": true,
+  "EnableOnDashboardMessaging": true
+}
