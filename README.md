@@ -13,7 +13,7 @@ Highlights:
 - tire compound and stint length of drivers on relative board.
 - experimental: Push to pass info. (still buggy)
 - Lovely Track Data implementation. Many thanks to Constantinos for these brilliant ideas! --> https://lsr.gg
-- Plugin to configure profiles
+- Plugin to configure profiles (you need to drop the dll file into the Simhub main directory and restart Simhub).
 
 Link to my Discord server: https://discord.gg/KuSsEYgB3k
 
