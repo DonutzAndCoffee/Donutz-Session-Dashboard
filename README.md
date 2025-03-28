@@ -15,6 +15,8 @@ Highlights:
 - Lovely Track Data implementation. Many thanks to Constantinos for these brilliant ideas! --> https://lsr.gg
 - Plugin to configure profiles
 
+Link to my Discord server: https://discord.gg/KuSsEYgB3k
+
 <br>Buy me a coffee if you want at [Paypal](https://paypal.me/donutz75?country.x=DE&locale.x=de_DE).
 
 ## Short Youtube demo
