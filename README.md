@@ -15,6 +15,9 @@ Highlights:
 - Lovely Track Data implementation. Many thanks to Constantinos for these brilliant ideas! --> https://lsr.gg
 - Plugin to configure profiles (you need to drop the dll file into the Simhub main directory and restart Simhub).
 
+![grafik](https://github.com/user-attachments/assets/7aa8ea7b-8c41-41f6-b1ff-24b34792bf5b)
+
+
 Link to my Discord server: https://discord.gg/KuSsEYgB3k
 
 <br>Buy me a coffee if you want at [Paypal](https://paypal.me/donutz75?country.x=DE&locale.x=de_DE).
